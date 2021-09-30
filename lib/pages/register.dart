@@ -230,7 +230,7 @@ class _RegisterState extends State<Register> {
                           Text("Already have an account? "),
                           InkWell(
                             child: Text("Sign in",style: TextStyle(color: Colors.deepOrange),),
-                            onTap: ()=>Navigator.pop(context),
+                            onTap: ()=>Navigator.pushNamed(context, home),
                           ),
                         ],
                       )
