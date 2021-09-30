@@ -186,38 +186,9 @@ class _RegisterState extends State<Register> {
                       FlatButton(
                         padding: EdgeInsets.symmetric(
                             vertical: 12, horizontal: 80),
-                        onPressed: () {
-                          if (validateAndSave()) {
-                            print(registerRequestModel.toJson());
-
-                            setState(() {
-                              isApiCallProcess = true;
-                            });
-
-                            APIService apiService = new APIService();
-                            apiService.register(registerRequestModel).then((value) {
-                              if (value != null) {
-                                setState(() {
-                                  isApiCallProcess = false;
-                                });
-
-                                if (value.token.isNotEmpty) {
-                                  final snackBar = SnackBar(
-                                      content: Text("Register Successful"));
-                                  scaffoldKey.currentState
-                                      .showSnackBar(snackBar);
-                                } else {
-                                  final snackBar =
-                                  SnackBar(content: Text(value.error));
-                                  scaffoldKey.currentState
-                                      .showSnackBar(snackBar);
-                                }
-                              }
-                            });
-                          }
-                        },
+                        onPressed: ()=>Navigator.pushNamed(context, home),
                         child: Text(
-                          "Login",
+                          "Sign up",
                           style: TextStyle(color: Colors.white),
                         ),
                         color: Theme.of(context).accentColor,
@@ -230,7 +201,7 @@ class _RegisterState extends State<Register> {
                           Text("Already have an account? "),
                           InkWell(
                             child: Text("Sign in",style: TextStyle(color: Colors.deepOrange),),
-                            onTap: ()=>Navigator.pushNamed(context, home),
+                            onTap: ()=>Navigator.pop(context),
                           ),
                         ],
                       )
