@@ -186,7 +186,7 @@ class _LoginState extends State<Login> {
                           Text("Don't have an account? "),
                           InkWell(
                             child: Text("Sign up",style: TextStyle(color: Colors.deepOrange),),
-                            onTap: ()=>Navigator.pushNamed(context, home),
+                            onTap: ()=>Navigator.pushNamed(context, register),
                           ),
                         ],
                       )
